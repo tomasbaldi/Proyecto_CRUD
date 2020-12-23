@@ -1,7 +1,17 @@
+import sys 
+import os
+myDir = os.getcwd()
+sys.path.append(myDir)
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.login_window_controller import login_window_controller
 
 
 class Ui_LoginWindow(object):
+
+    def __init__(self):
+        self.login_window_controller = login_window_controller(self)
+
     def setupUi(self, LoginWindow):
         LoginWindow.setObjectName("LoginWindow")
         LoginWindow.setWindowModality(QtCore.Qt.NonModal)

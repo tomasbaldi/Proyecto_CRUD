@@ -4,9 +4,14 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.db_update_name_controller import db_update_name_controller
 
 
 class Ui_update_nombre_window(object):
+
+    def __init__(self):
+        self.update_name_controller = db_update_name_controller(self)
+
     def setupUi(self, update_nombre_window):
         update_nombre_window.setObjectName("update_nombre_window")
         update_nombre_window.resize(500, 300)

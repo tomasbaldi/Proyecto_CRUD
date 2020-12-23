@@ -4,9 +4,14 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.db_update_salary_controller import db_update_salary_controller
 
 
 class Ui_update_salary_window(object):
+
+    def __init__(self):
+        self.update_salary_controller = db_update_salary_controller(self)
+
     def setupUi(self, update_salary_window):
         update_salary_window.setObjectName("update_salary_window")
         update_salary_window.resize(500, 300)

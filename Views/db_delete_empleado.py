@@ -4,9 +4,14 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.db_delete_empleado_controller import db_delete_empleado_controller
 
 
 class Ui_delete_window(object):
+
+    def __init__(self):
+        self.delete_empleado_controller =  db_delete_empleado_controller(self)
+
     def setupUi(self, delete_window):
         delete_window.setObjectName("delete_window")
         delete_window.resize(500, 250)

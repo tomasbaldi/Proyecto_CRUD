@@ -4,9 +4,14 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.db_update_select_controller import db_update_select_controller
 
 
 class Ui_select_upd_window(object):
+
+    def __init__(self):
+        self.update_select_controller = db_update_select_controller(self)
+
     def setupUi(self, select_upd_window):
         select_upd_window.setObjectName("select_upd_window")
         select_upd_window.resize(400, 300)

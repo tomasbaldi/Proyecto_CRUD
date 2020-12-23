@@ -4,9 +4,14 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.db_baja_empleado_controller import db_baja_empleado_controller
 
 
 class Ui_baja_window(object):
+
+    def __init__(self):
+        self.baja_empleado_controller = db_baja_empleado_controller(self)
+
     def setupUi(self, baja_window):
         baja_window.setObjectName("baja_window")
         baja_window.resize(500, 300)

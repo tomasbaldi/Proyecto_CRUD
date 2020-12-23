@@ -4,9 +4,13 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Controllers.db_update_depto_controller import db_update_depto_controller
 
 class Ui_update_depto_window(object):
+
+    def __init__(self):
+        self.update_depto_controller = db_update_depto_controller(self)
+
     def setupUi(self, update_depto_window):
         update_depto_window.setObjectName("update_depto_window")
         update_depto_window.resize(500, 300)

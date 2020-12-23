@@ -4,9 +4,13 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Controllers.db_alta_empleado_controller import db_alta_empleado_controller
 
 class Ui_alta_window(object):
+    
+    def __init__(self):
+        self.alta_empleado_controller = db_alta_empleado_controller(self)
+
     def setupUi(self, alta_window):
         alta_window.setObjectName("alta_window")
         alta_window.resize(500, 400)

@@ -189,6 +189,16 @@ class Ui_main_bd_window(object):
 
         #------------------------------Events-------------------------------
         self.x = self.agregar_registro.clicked.connect(lambda:self.mainwindow_controller.add(main_bd_window, Ui_alta_window))
+        
+        self.x = self.modificar_registro.clicked.connect(lambda:self.mainwindow_controller.update(main_bd_window, Ui_select_upd_window))
+        
+        self.x = self.baja_registro.clicked.connect(lambda:self.mainwindow_controller.baja(main_bd_window, Ui_baja_window))
+        
+        #aca va el de consultaself.x = self.modificar_registro.clicked.connect(lambda:self.mainwindow_controller.update(main_bd_window, Ui_select_upd_window))
+        
+        self.x = self.undo_baja_registro.clicked.connect(lambda:self.mainwindow_controller.deshacer(main_bd_window, Ui_undo_baja_window))
+        
+        self.x = self.delete_registro.clicked.connect(lambda:self.mainwindow_controller.eliminar(main_bd_window, Ui_delete_window))
         #----------------------------End Events-----------------------------
 
     def retranslateUi(self, main_bd_window):

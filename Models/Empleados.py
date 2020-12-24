@@ -20,3 +20,36 @@ class Empleados():
         
         except:
             print('empleados table already exists')
+    
+    def get_table_activos(self):
+        self.db_cursor.execute("""SELECT 
+                                        id, 
+                                        nombre, 
+                                        apellido, 
+                                        departamento, 
+                                        alta_de_empleado, 
+                                        sueldo_bruto 
+                                        FROM empleados 
+                                        WHERE baja_de_empleado IS NULL ORDER BY apellido ASC
+                                """)
+        result = self.db_cursor.fetchall()
+        
+        return result
+
+    def get_table_inactivos(self):
+        self.db_cursor.execute("""SELECT 
+                                        id, 
+                                        nombre, 
+                                        apellido, 
+                                        departamento, 
+                                        alta_de_empleado, 
+                                        sueldo_bruto 
+                                        FROM empleados 
+                                        WHERE baja_de_empleado IS NOT NULL ORDER BY apellido ASC
+                                """)
+        result = self.db_cursor.fetchall()
+        
+        return result
+        
+
+            

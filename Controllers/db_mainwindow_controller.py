@@ -9,6 +9,8 @@ from Models.Empleados import Empleados
 
 class db_mainwindow_controller():
 
+    #------------------Redireccion a otras ventanas-------------------
+
     def __init__(self, db_mainwindow):
         self.empleados = Empleados(connection())
         self.db_mainwindow = db_mainwindow
@@ -54,5 +56,22 @@ class db_mainwindow_controller():
         self.db_mainwindow.ui = Ui_delete_window()
         self.db_mainwindow.ui.setupUi(self.db_mainwindow.Form)
         self.db_mainwindow.Form.show()
+
+    #--------------------Actualizacion de tablas-----------------------
     
+    def update_table_activos(self):
+        self.datos = self.empleados.get_table_activos()
+        self.table = self.db_mainwindow.tabla_empleados_activos
+        self.table.setRowCount(len(self.datos))
+        for fila in range(len(self.datos)):
+            for columna in range(len(self.datos[fila])):
+                self.table.setItem(fila, columna, QtWidgets.QTableWidgetItem(str(self.datos[fila][columna])))
+
+    def update_table_inactivos(self):
+        self.datos = self.empleados.get_table_inactivos()
+        self.table = self.db_mainwindow.tabla_empleados_inactivos
+        self.table.setRowCount(len(self.datos))
+        for fila in range(len(self.datos)):
+            for columna in range(len(self.datos[fila])):
+                self.table.setItem(fila, columna, QtWidgets.QTableWidgetItem(str(self.datos[fila][columna])))
     

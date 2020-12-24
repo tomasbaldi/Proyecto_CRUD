@@ -187,6 +187,10 @@ class Ui_main_bd_window(object):
         self.tabs_empleados.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(main_bd_window)
 
+        #-------------------------Actualizar Tablas-------------------------
+        self.mainwindow_controller.update_table_activos()
+
+        self.mainwindow_controller.update_table_inactivos()
         #------------------------------Events-------------------------------
         self.x = self.agregar_registro.clicked.connect(lambda:self.mainwindow_controller.add(main_bd_window, Ui_alta_window))
         
@@ -239,7 +243,6 @@ class Ui_main_bd_window(object):
         self.baja_registro.setText(_translate("main_bd_window", "Dar de baja"))
         self.consultar_registro.setText(_translate("main_bd_window", "Consultar"))
         self.refresh_bd_registro.setText(_translate("main_bd_window", "Refrescar BD"))
-
 
 if __name__ == "__main__":
     import sys

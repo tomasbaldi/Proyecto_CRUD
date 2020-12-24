@@ -11,6 +11,7 @@ from Views.db_update_select import Ui_select_upd_window
 #importar la ventana de consulta
 from Views.db_undo_empleado import Ui_undo_baja_window
 from Views.db_delete_empleado import Ui_delete_window
+from Views.db_search import Ui_search_window
 
 
 class Ui_main_bd_window(object):
@@ -198,7 +199,7 @@ class Ui_main_bd_window(object):
         
         self.x = self.baja_registro.clicked.connect(lambda:self.mainwindow_controller.baja(main_bd_window, Ui_baja_window))
         
-        #aca va el de consultaself.x = self.modificar_registro.clicked.connect(lambda:self.mainwindow_controller.update(main_bd_window, Ui_select_upd_window))
+        self.x = self.consultar_registro.clicked.connect(lambda:self.mainwindow_controller.consulta(main_bd_window, Ui_search_window))
         
         self.x = self.undo_baja_registro.clicked.connect(lambda:self.mainwindow_controller.deshacer(main_bd_window, Ui_undo_baja_window))
         

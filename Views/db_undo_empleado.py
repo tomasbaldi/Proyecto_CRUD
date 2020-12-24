@@ -1,7 +1,16 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+import sys 
+import os
+myDir = os.getcwd()
+sys.path.append(myDir)
 
+from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers import db_undo_empleado_controller
 
 class Ui_undo_baja_window(object):
+    
+    def __init__(self):
+        self.undo_empleado_controller = db_undo_empleado_controller(self)
+
     def setupUi(self, undo_baja_window):
         undo_baja_window.setObjectName("undo_baja_window")
         undo_baja_window.resize(500, 250)

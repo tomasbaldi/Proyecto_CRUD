@@ -36,12 +36,12 @@ class db_mainwindow_controller():
         self.db_mainwindow.ui.setupUi(self.db_mainwindow.Form)
         self.db_mainwindow.Form.show()
 
-    # def consulta(self, Ui_main_bd_window, Ui_select_upd_window):
-    #     #Ui_main_bd_window.hide()
-    #     self.db_mainwindow.Form = QtWidgets.QMainWindow()
-    #     self.db_mainwindow.ui = Ui_select_upd_window()
-    #     self.db_mainwindow.ui.setupUi(self.db_mainwindow.Form)
-    #     self.db_mainwindow.Form.show()
+    def consulta(self, Ui_main_bd_window, Ui_search_window):
+        #Ui_main_bd_window.hide()
+        self.db_mainwindow.Form = QtWidgets.QMainWindow()
+        self.db_mainwindow.ui = Ui_search_window()
+        self.db_mainwindow.ui.setupUi(self.db_mainwindow.Form)
+        self.db_mainwindow.Form.show()
     
     def deshacer(self, Ui_main_bd_window, Ui_undo_baja_window):
         #Ui_main_bd_window.hide()

@@ -4,9 +4,15 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.db_search_controller import db_search_controller
+from Views.db_searchresults import Ui_searchresults_window
 
 
 class Ui_search_window(object):
+
+    def __init__(self):
+        self.search_controller = db_search_controller(self)
+
     def setupUi(self, search_window):
         search_window.setObjectName("search_window")
         search_window.resize(600, 400)
@@ -117,6 +123,10 @@ class Ui_search_window(object):
 
         self.retranslateUi(search_window)
         QtCore.QMetaObject.connectSlotsByName(search_window)
+
+        #------------------------------Events-------------------------------
+        self.x = self.search_button.clicked.connect(lambda:self.search_controller.resultados(search_window, Ui_searchresults_window))
+        #----------------------------End Events-----------------------------
 
     def retranslateUi(self, search_window):
         _translate = QtCore.QCoreApplication.translate

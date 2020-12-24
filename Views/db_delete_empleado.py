@@ -4,7 +4,7 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Controllers import db_delete_empleado_controller
+from Controllers.db_delete_empleado_controller import db_delete_empleado_controller
 
 
 class Ui_delete_window(object):

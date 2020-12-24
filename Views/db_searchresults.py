@@ -4,9 +4,14 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.db_searchresults_controller import db_searchresults_controller
 
 
 class Ui_searchresults_window(object):
+
+    def __init__(self):
+        self.searchresults_controller = db_searchresults_controller(self)
+
     def setupUi(self, searchresults_window):
         searchresults_window.setObjectName("searchresults_window")
         searchresults_window.resize(770, 550)

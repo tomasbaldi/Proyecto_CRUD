@@ -9,4 +9,4 @@ def connection():
         return db_connection
         
     except:
-        print('database already exist')
+        print('error')

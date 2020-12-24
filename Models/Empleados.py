@@ -19,4 +19,4 @@ class Empleados():
             print("empleados table created successfully")
         
         except:
-            print('empleados table already exist')
+            print('empleados table already exists')

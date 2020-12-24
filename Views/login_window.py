@@ -5,6 +5,7 @@ sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Controllers.login_window_controller import login_window_controller
+from Views.db_mainwindow import Ui_main_bd_window
 
 
 class Ui_LoginWindow(object):
@@ -118,6 +119,10 @@ class Ui_LoginWindow(object):
 
         self.retranslateUi(LoginWindow)
         QtCore.QMetaObject.connectSlotsByName(LoginWindow)
+
+        #------------------------------Events-------------------------------
+        self.x = self.enter_button.clicked.connect(lambda:self.login_window_controller.login_app(self.user_entry.text(), self.pwd_entry.text(), LoginWindow, Ui_main_bd_window))
+        #----------------------------End Events-----------------------------
 
     def retranslateUi(self, LoginWindow):
         _translate = QtCore.QCoreApplication.translate

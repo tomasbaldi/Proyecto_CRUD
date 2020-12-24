@@ -14,4 +14,12 @@ class Users():
             print("users table created successfully")
 
         except:
-            print('users table already exist')
+            print('users table already exists')
+
+    def getUser(self, user, password):
+        user1 = [user]
+        password1 = [password]
+        self.db_cursor.execute("SELECT * FROM users WHERE user = ? AND password = ?", user1 + password1)
+        result = self.db_cursor.fetchall()
+        
+        return result

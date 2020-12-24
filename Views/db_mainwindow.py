@@ -5,6 +5,12 @@ sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Controllers.db_mainwindow_controller import db_mainwindow_controller
+from Views.db_baja_empleado import Ui_baja_window
+from Views.db_alta_empleado import Ui_alta_window
+from Views.db_update_select import Ui_select_upd_window
+#importar la ventana de consulta
+from Views.db_undo_empleado import Ui_undo_baja_window
+from Views.db_delete_empleado import Ui_delete_window
 
 
 class Ui_main_bd_window(object):
@@ -180,6 +186,10 @@ class Ui_main_bd_window(object):
         self.retranslateUi(main_bd_window)
         self.tabs_empleados.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(main_bd_window)
+
+        #------------------------------Events-------------------------------
+        self.x = self.agregar_registro.clicked.connect(lambda:self.mainwindow_controller.add(main_bd_window, Ui_alta_window))
+        #----------------------------End Events-----------------------------
 
     def retranslateUi(self, main_bd_window):
         _translate = QtCore.QCoreApplication.translate

@@ -6,6 +6,12 @@ sys.path.append(myDir)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Controllers.db_update_select_controller import db_update_select_controller
 
+from Views.db_update_name import Ui_update_nombre_window
+from Views.db_update_surname import Ui_update_apellido_window
+from Views.db_update_depto import Ui_update_depto_window
+from Views.db_update_salary import Ui_update_salary_window
+
+
 
 class Ui_select_upd_window(object):
 
@@ -76,6 +82,16 @@ class Ui_select_upd_window(object):
 
         self.retranslateUi(select_upd_window)
         QtCore.QMetaObject.connectSlotsByName(select_upd_window)
+
+        #------------------------------Events-------------------------------
+        self.x = self.upd_nombre.clicked.connect(lambda:self.update_select_controller.actualizar_nombre(select_upd_window, Ui_update_nombre_window))
+
+        self.x = self.upd_apellido.clicked.connect(lambda:self.update_select_controller.actualizar_apellido(select_upd_window, Ui_update_apellido_window))
+
+        self.x = self.upd_dpto.clicked.connect(lambda:self.update_select_controller.actualizar_departamento(select_upd_window, Ui_update_depto_window))
+
+        self.x = self.upd_sueldo.clicked.connect(lambda:self.update_select_controller.actualizar_sueldo_bruto(select_upd_window, Ui_update_salary_window))
+        #----------------------------End Events-----------------------------
 
     def retranslateUi(self, select_upd_window):
         _translate = QtCore.QCoreApplication.translate

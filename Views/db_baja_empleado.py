@@ -73,6 +73,8 @@ class Ui_baja_window(object):
         self.x = self.save_button.clicked.connect(lambda:self.baja_empleado_controller.baja_empleado(self.id_entry.displayText(), self.baja_entry.displayText()))
         
         self.x = self.save_button.clicked.connect(lambda:self.msg_baja_ok())
+
+        self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 
 
@@ -91,6 +93,10 @@ class Ui_baja_window(object):
         self.msg_upd.setText("Se realizó la baja del ID correctamente!")
         self.msg_upd.setInformativeText("Presione OK para continuar.")
         self.msg_upd.show()
+
+    def clear_entrys(self):
+        self.id_entry.clear()
+        self.baja_entry.clear()
 
 if __name__ == "__main__":
     import sys

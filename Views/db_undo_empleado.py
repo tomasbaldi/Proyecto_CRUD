@@ -59,6 +59,10 @@ class Ui_undo_baja_window(object):
 
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.undo_empleado_controller.deshacer_empleado(self.id_entry.displayText()))
+
+        self.x = self.save_button.clicked.connect(lambda:self.msg_undo_ok())
+
+        self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 
     def retranslateUi(self, undo_baja_window):
@@ -68,6 +72,16 @@ class Ui_undo_baja_window(object):
         self.idempleado_label.setText(_translate("undo_baja_window", "Ingrese el ID del empleado:"))
         self.save_button.setText(_translate("undo_baja_window", "Deshacer baja"))
 
+    def msg_undo_ok(self):
+        self.msg_upd = QMessageBox()
+        self.msg_upd.setIcon(QMessageBox.Information)
+        self.msg_upd.setWindowTitle("Deshacer baja")
+        self.msg_upd.setText("Se deshizo la baja del ID correctamente!")
+        self.msg_upd.setInformativeText("Presione OK para continuar.")
+        self.msg_upd.show()
+
+    def clear_entrys(self):
+        self.id_entry.clear()
 
 if __name__ == "__main__":
     import sys

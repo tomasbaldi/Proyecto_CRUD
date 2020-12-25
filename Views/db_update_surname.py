@@ -72,6 +72,8 @@ class Ui_update_apellido_window(object):
         self.x = self.save_button.clicked.connect(lambda:self.update_depto_controller.actualizar_depto(self.id_entry.displayText(), self.upd_surname_entry.displayText()))
         
         self.x = self.save_button.clicked.connect(lambda:self.msg_upd_ok())
+
+        self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 
     def retranslateUi(self, update_apellido_window):
@@ -90,6 +92,10 @@ class Ui_update_apellido_window(object):
         self.msg_upd.setInformativeText("Presione OK para continuar.")
         self.msg_upd.show()
 
+    def clear_entrys(self):
+        self.id_entry.clear()
+        self.upd_surname_entry.clear()
+    
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

@@ -73,6 +73,8 @@ class Ui_update_salary_window(object):
         self.x = self.save_button.clicked.connect(lambda:self.update_salary_controller.actualizar_salario(self.id_entry.displayText(), self.upd_salary_entry.displayText()))
         
         self.x = self.save_button.clicked.connect(lambda:self.msg_upd_ok())
+
+        self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 
     def retranslateUi(self, update_salary_window):
@@ -91,6 +93,9 @@ class Ui_update_salary_window(object):
         self.msg_upd.setInformativeText("Presione OK para continuar.")
         self.msg_upd.show()
 
+    def clear_entrys(self):
+        self.id_entry.clear()
+        self.upd_salary_entry.clear()
 
 if __name__ == "__main__":
     import sys

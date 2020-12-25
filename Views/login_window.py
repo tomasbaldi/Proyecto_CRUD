@@ -6,6 +6,8 @@ sys.path.append(myDir)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Controllers.login_window_controller import login_window_controller
 from Views.db_mainwindow import Ui_main_bd_window
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 
 
 class Ui_LoginWindow(object):

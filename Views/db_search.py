@@ -9,7 +9,6 @@ from Views.db_searchresults import Ui_searchresults_window
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QRegExpValidator
 
-
 class Ui_search_window(object):
 
     def __init__(self):
@@ -146,9 +145,11 @@ class Ui_search_window(object):
         #------------------------------End Regex----------------------------        
         
         #------------------------------Events-------------------------------
+        self.x = self.search_button.clicked.connect(lambda:self.search_controller.buscar(self.entry_alta_nombre.text(), self.entry_alta_apellido.text(), self.entry_alta_depto.text(), self.entry_alta_date_min.text(), self.entry_alta_date_max.text(), self.entry_salary_min.text(), self.entry_salary_max.text()))
+        
         self.x = self.search_button.clicked.connect(lambda:self.search_controller.resultados(search_window, Ui_searchresults_window))
         #----------------------------End Events-----------------------------
-
+    
     def retranslateUi(self, search_window):
         _translate = QtCore.QCoreApplication.translate
         search_window.setWindowTitle(_translate("search_window", "BD Empleados v2.0"))

@@ -6,6 +6,8 @@ sys.path.append(myDir)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_alta_empleado_controller import db_alta_empleado_controller
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 
 class Ui_alta_window(object):
     
@@ -101,11 +103,23 @@ class Ui_alta_window(object):
         self.retranslateUi(alta_window)
         QtCore.QMetaObject.connectSlotsByName(alta_window)
 
+        #------------------------------Regex--------------------------------
+        self.rx1 = QRegExp("[a-z ]+")
+        self.entry_alta_nombre.setValidator(QRegExpValidator(self.rx1))
+        self.rx2 = QRegExp("[a-z ]+")
+        self.entry_alta_apellido.setValidator(QRegExpValidator(self.rx2))
+        self.rx3 = QRegExp("[a-z ]+")
+        self.entry_alta_depto.setValidator(QRegExpValidator(self.rx3))
+        self.rx4 = QRegExp("[0-9]+")
+        self.entry_alta_date.setValidator(QRegExpValidator(self.rx4))
+        self.entry_alta_date.setInputMask("9999-99-99")
+        self.rx5 = QRegExp("[0-9]+")
+        self.entry_sueldo_bruto.setValidator(QRegExpValidator(self.rx5))                
+        #------------------------------End Regex----------------------------
+        
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.alta_empleado_controller.alta_empleado(self.entry_alta_nombre.displayText(), self.entry_alta_apellido.displayText(), self.entry_alta_depto.displayText(), self.entry_alta_date.displayText(), self.entry_sueldo_bruto.displayText()))
-        
         self.x = self.save_button.clicked.connect(lambda:self.msg_add_ok())
-
         self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 

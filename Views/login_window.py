@@ -119,7 +119,14 @@ class Ui_LoginWindow(object):
 
         self.retranslateUi(LoginWindow)
         QtCore.QMetaObject.connectSlotsByName(LoginWindow)
-
+        
+        #------------------------------Regex--------------------------------
+        self.rx1 = QRegExp("[a-z]+")
+        self.user_entry.setValidator(QRegExpValidator(self.rx1))
+        self.rx2 = QRegExp("[0-9]+")
+        self.pwd_entry.setValidator(QRegExpValidator(self.rx2))
+        #------------------------------End Regex----------------------------
+        
         #------------------------------Events-------------------------------
         self.x = self.enter_button.clicked.connect(lambda:self.login_window_controller.login_app(self.user_entry.text(), self.pwd_entry.text(), LoginWindow, Ui_main_bd_window))
         #----------------------------End Events-----------------------------

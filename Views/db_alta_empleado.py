@@ -146,6 +146,7 @@ class Ui_alta_window(object):
         self.entry_alta_nombre.clear()
         self.entry_alta_apellido.clear()
         self.entry_alta_depto.clear()
+        self.entry_alta_date.clear()
         self.entry_sueldo_bruto.clear()
 
 if __name__ == "__main__":

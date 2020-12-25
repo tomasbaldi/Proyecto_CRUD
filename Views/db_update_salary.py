@@ -74,7 +74,7 @@ class Ui_update_salary_window(object):
         #------------------------------Regex--------------------------------
         self.rx1 = QRegExp("[0-9]+")
         self.id_entry.setValidator(QRegExpValidator(self.rx1))
-        self.rx2 = QRegExp("[a-z ]+")
+        self.rx2 = QRegExp("[0-9]+")
         self.upd_salary_entry.setValidator(QRegExpValidator(self.rx2))
         #------------------------------End Regex----------------------------
         

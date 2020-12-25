@@ -74,7 +74,7 @@ class Ui_update_depto_window(object):
         self.rx1 = QRegExp("[0-9]+")
         self.id_entry.setValidator(QRegExpValidator(self.rx1))
         self.rx2 = QRegExp("[a-z ]+")
-        self.upd_depto_entry.setValidator(QRegExpValidator(self.rx1))
+        self.upd_depto_entry.setValidator(QRegExpValidator(self.rx2))
         #------------------------------End Regex----------------------------        
         
         #------------------------------Events-------------------------------

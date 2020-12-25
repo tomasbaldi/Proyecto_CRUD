@@ -4,6 +4,7 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_update_select_controller import db_update_select_controller
 
 from Views.db_update_name import Ui_update_nombre_window

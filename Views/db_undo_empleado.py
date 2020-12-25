@@ -4,6 +4,7 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_undo_empleado_controller import db_undo_empleado_controller
 
 class Ui_undo_baja_window(object):

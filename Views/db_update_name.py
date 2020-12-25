@@ -4,6 +4,7 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_update_name_controller import db_update_name_controller
 
 
@@ -70,6 +71,8 @@ class Ui_update_nombre_window(object):
 
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.update_name_controller.actualizar_nombre(self.id_entry.displayText(), self.upd_name_entry.displayText()))
+        
+        self.x = self.save_button.clicked.connect(lambda:self.msg_upd_ok())
         #----------------------------End Events-----------------------------
 
     def retranslateUi(self, update_nombre_window):
@@ -79,6 +82,14 @@ class Ui_update_nombre_window(object):
         self.idempleado_label.setText(_translate("update_nombre_window", "Ingrese el ID del empleado:"))
         self.upd_name_label.setText(_translate("update_nombre_window", "<html><head/><body><p>Ingrese un nuevo nombre<br/>para el ID ingresado:</p></body></html>"))
         self.save_button.setText(_translate("update_nombre_window", "Aplicar cambios"))
+
+    def msg_upd_ok(self):
+        self.msg_upd = QMessageBox()
+        self.msg_upd.setIcon(QMessageBox.Information)
+        self.msg_upd.setWindowTitle("Modificación de nombre")
+        self.msg_upd.setText("El valor se actualizó correctamente!")
+        self.msg_upd.setInformativeText("Presione OK para continuar.")
+        self.msg_upd.show()
 
 
 if __name__ == "__main__":

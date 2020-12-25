@@ -4,6 +4,7 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_baja_empleado_controller import db_baja_empleado_controller
 
 
@@ -70,6 +71,8 @@ class Ui_baja_window(object):
 
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.baja_empleado_controller.baja_empleado(self.id_entry.displayText(), self.baja_entry.displayText()))
+        
+        self.x = self.save_button.clicked.connect(lambda:self.msg_baja_ok())
         #----------------------------End Events-----------------------------
 
 
@@ -81,6 +84,13 @@ class Ui_baja_window(object):
         self.fechabaja_label.setText(_translate("baja_window", "Ingrese la fecha de baja:"))
         self.save_button.setText(_translate("baja_window", "Dar de baja"))
 
+    def msg_baja_ok(self):
+        self.msg_upd = QMessageBox()
+        self.msg_upd.setIcon(QMessageBox.Information)
+        self.msg_upd.setWindowTitle("Estado de baja de empleado")
+        self.msg_upd.setText("Se realizó la baja del ID correctamente!")
+        self.msg_upd.setInformativeText("Presione OK para continuar.")
+        self.msg_upd.show()
 
 if __name__ == "__main__":
     import sys

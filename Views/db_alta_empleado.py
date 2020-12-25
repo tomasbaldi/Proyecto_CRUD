@@ -4,6 +4,7 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_alta_empleado_controller import db_alta_empleado_controller
 
 class Ui_alta_window(object):
@@ -102,6 +103,8 @@ class Ui_alta_window(object):
 
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.alta_empleado_controller.alta_empleado(self.entry_alta_nombre.displayText(), self.entry_alta_apellido.displayText(), self.entry_alta_depto.displayText(), self.entry_alta_date.displayText(), self.entry_sueldo_bruto.displayText()))
+        
+        self.x = self.save_button.clicked.connect(lambda:self.msg_add_ok())
         #----------------------------End Events-----------------------------
 
     def retranslateUi(self, alta_window):
@@ -114,6 +117,14 @@ class Ui_alta_window(object):
         self.date_label.setText(_translate("alta_window", "Fecha de alta:"))
         self.sueldo_label.setText(_translate("alta_window", "Sueldo Bruto:"))
         self.save_button.setText(_translate("alta_window", "Dar de alta"))
+
+    def msg_add_ok(self):
+        self.msg_upd = QMessageBox()
+        self.msg_upd.setIcon(QMessageBox.Information)
+        self.msg_upd.setWindowTitle("Estado de alta de empleado")
+        self.msg_upd.setText("Se agregó el registro a la base de datos!")
+        self.msg_upd.setInformativeText("Presione OK para continuar.")
+        self.msg_upd.show()
 
 if __name__ == "__main__":
     import sys

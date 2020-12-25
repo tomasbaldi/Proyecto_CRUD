@@ -4,6 +4,7 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_update_depto_controller import db_update_depto_controller
 
 class Ui_update_depto_window(object):
@@ -68,7 +69,9 @@ class Ui_update_depto_window(object):
         QtCore.QMetaObject.connectSlotsByName(update_depto_window)
 
         #------------------------------Events-------------------------------
-        self.x = self.save_button.clicked.connect(lambda:self.update_depto_controller.actualizar_depto((self.id_entry.displayText(), self.upd_depto_entry.displayText())))
+        self.x = self.save_button.clicked.connect(lambda:self.update_depto_controller.actualizar_depto(self.id_entry.displayText(), self.upd_depto_entry.displayText()))
+        
+        self.x = self.save_button.clicked.connect(lambda:self.msg_upd_ok())
         #----------------------------End Events-----------------------------
 
     def retranslateUi(self, update_depto_window):
@@ -78,6 +81,14 @@ class Ui_update_depto_window(object):
         self.idempleado_label.setText(_translate("update_depto_window", "Ingrese el ID del empleado:"))
         self.upd_depto_label.setText(_translate("update_depto_window", "<html><head/><body><p>Ingrese un nuevo departamento<br/>para el ID ingresado:</p></body></html>"))
         self.save_button.setText(_translate("update_depto_window", "Aplicar cambios"))
+
+    def msg_upd_ok(self):
+        self.msg_upd = QMessageBox()
+        self.msg_upd.setIcon(QMessageBox.Information)
+        self.msg_upd.setWindowTitle("Modificación de departamento")
+        self.msg_upd.setText("El valor se actualizó correctamente!")
+        self.msg_upd.setInformativeText("Presione OK para continuar.")
+        self.msg_upd.show()
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@ myDir = os.getcwd()
 sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_delete_empleado_controller import db_delete_empleado_controller
 
 
@@ -59,9 +60,9 @@ class Ui_delete_window(object):
 
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.delete_empleado_controller.eliminar_empleado(self.id_entry.displayText()))
+        
+        self.x = self.save_button.clicked.connect(lambda:self.msg_del_ok())
         #----------------------------End Events-----------------------------
-
-
 
     def retranslateUi(self, delete_window):
         _translate = QtCore.QCoreApplication.translate
@@ -70,6 +71,13 @@ class Ui_delete_window(object):
         self.idempleado_label.setText(_translate("delete_window", "Ingrese el ID del empleado:"))
         self.save_button.setText(_translate("delete_window", "Eliminar de BD"))
 
+    def msg_del_ok(self):
+        self.msg_upd = QMessageBox()
+        self.msg_upd.setIcon(QMessageBox.Information)
+        self.msg_upd.setWindowTitle("Eliminar empleado")
+        self.msg_upd.setText("Se eliminó el registro de la base de datos!")
+        self.msg_upd.setInformativeText("Presione OK para continuar.")
+        self.msg_upd.show()
 
 if __name__ == "__main__":
     import sys

@@ -62,6 +62,18 @@ class Empleados():
         self.db_cursor.execute("UPDATE empleados SET baja_de_empleado = ? WHERE id = ?", fecha_baja + id)
         self.db_connection.commit()
         print("El empleado ID = {} ha sido dado de baja".format(id[0]))
+
+    def delete_empleado(self, id):
+        self.db_cursor = self.db_connection.cursor()
+        self.db_cursor.execute("DELETE FROM empleados WHERE id = ?", id)
+        self.db_connection.commit()
+        print("El empleado ID = {} ha sido removido de la base de datos".format(id[0]))
+
+    def undo_empleado(self, id):
+        self.db_cursor = self.db_connection.cursor()
+        self.db_cursor.execute("UPDATE empleados SET baja_de_empleado = NULL WHERE id = ?", id)
+        self.db_connection.commit()
+        print("El empleado ID = {} ha sido reincorporado".format(id[0]))
         
 
             

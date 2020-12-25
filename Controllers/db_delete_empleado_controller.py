@@ -12,3 +12,7 @@ class db_delete_empleado_controller():
     def __init__(self, db_delete_empleado):
         self.empleados = Empleados(connection())
         self.db_delete_empleado = db_delete_empleado
+
+    def eliminar_empleado(self, str_id):
+        id = [str_id]
+        self.empleados.delete_empleado(id)

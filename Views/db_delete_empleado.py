@@ -57,6 +57,12 @@ class Ui_delete_window(object):
         self.retranslateUi(delete_window)
         QtCore.QMetaObject.connectSlotsByName(delete_window)
 
+        #------------------------------Events-------------------------------
+        self.x = self.save_button.clicked.connect(lambda:self.delete_empleado_controller.eliminar_empleado(self.id_entry.displayText()))
+        #----------------------------End Events-----------------------------
+
+
+
     def retranslateUi(self, delete_window):
         _translate = QtCore.QCoreApplication.translate
         delete_window.setWindowTitle(_translate("delete_window", "BD Empleados v2.0"))

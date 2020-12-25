@@ -56,6 +56,10 @@ class Ui_undo_baja_window(object):
         self.retranslateUi(undo_baja_window)
         QtCore.QMetaObject.connectSlotsByName(undo_baja_window)
 
+        #------------------------------Events-------------------------------
+        self.x = self.save_button.clicked.connect(lambda:self.undo_empleado_controller.deshacer_empleado(self.id_entry.displayText()))
+        #----------------------------End Events-----------------------------
+
     def retranslateUi(self, undo_baja_window):
         _translate = QtCore.QCoreApplication.translate
         undo_baja_window.setWindowTitle(_translate("undo_baja_window", "BD Empleados v2.0"))

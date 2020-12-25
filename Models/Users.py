@@ -21,6 +21,5 @@ class Users():
         password1 = [password]
         self.db_cursor.execute("SELECT * FROM users WHERE user = ? AND password = ?", user1 + password1)
         result = self.db_cursor.fetchall()
-        self.db_cursor.close()
         
         return result

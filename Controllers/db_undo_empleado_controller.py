@@ -12,3 +12,7 @@ class db_undo_empleado_controller():
     def __init__(self, db_undo_empleado):
         self.empleados = Empleados(connection())
         self.db_undo_empleado = db_undo_empleado
+
+    def deshacer_empleado(self, str_id):
+        id = [str_id]
+        self.empleados.undo_empleado(id)

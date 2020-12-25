@@ -6,6 +6,8 @@ sys.path.append(myDir)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Controllers.db_search_controller import db_search_controller
 from Views.db_searchresults import Ui_searchresults_window
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 
 
 class Ui_search_window(object):
@@ -124,6 +126,25 @@ class Ui_search_window(object):
         self.retranslateUi(search_window)
         QtCore.QMetaObject.connectSlotsByName(search_window)
 
+        #------------------------------Regex--------------------------------
+        self.rx1 = QRegExp("[a-z ]+")
+        self.entry_alta_nombre.setValidator(QRegExpValidator(self.rx1))
+        self.rx2 = QRegExp("[a-z ]+")
+        self.entry_alta_apellido.setValidator(QRegExpValidator(self.rx2))
+        self.rx3 = QRegExp("[a-z ]+")
+        self.entry_alta_depto.setValidator(QRegExpValidator(self.rx3))
+        self.rx4 = QRegExp("[0-9]+")
+        self.entry_alta_date_min.setValidator(QRegExpValidator(self.rx4))
+        self.entry_alta_date_min.setInputMask("9999-99-99")
+        self.rx5 = QRegExp("[0-9]+")
+        self.entry_alta_date_max.setValidator(QRegExpValidator(self.rx5))
+        self.entry_alta_date_max.setInputMask("9999-99-99")
+        self.rx6 = QRegExp("[0-9]+")
+        self.entry_salary_min.setValidator(QRegExpValidator(self.rx6))
+        self.rx7 = QRegExp("[0-9]+")
+        self.entry_salary_max.setValidator(QRegExpValidator(self.rx7))
+        #------------------------------End Regex----------------------------        
+        
         #------------------------------Events-------------------------------
         self.x = self.search_button.clicked.connect(lambda:self.search_controller.resultados(search_window, Ui_searchresults_window))
         #----------------------------End Events-----------------------------

@@ -6,6 +6,8 @@ sys.path.append(myDir)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_undo_empleado_controller import db_undo_empleado_controller
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 
 class Ui_undo_baja_window(object):
     
@@ -57,11 +59,14 @@ class Ui_undo_baja_window(object):
         self.retranslateUi(undo_baja_window)
         QtCore.QMetaObject.connectSlotsByName(undo_baja_window)
 
+        #------------------------------Regex--------------------------------
+        self.rx1 = QRegExp("[0-9]+")
+        self.id_entry.setValidator(QRegExpValidator(self.rx1))
+        #------------------------------End Regex----------------------------
+
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.undo_empleado_controller.deshacer_empleado(self.id_entry.displayText()))
-
         self.x = self.save_button.clicked.connect(lambda:self.msg_undo_ok())
-
         self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 

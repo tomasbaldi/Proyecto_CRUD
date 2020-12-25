@@ -6,6 +6,8 @@ sys.path.append(myDir)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_update_name_controller import db_update_name_controller
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 
 
 class Ui_update_nombre_window(object):
@@ -69,11 +71,16 @@ class Ui_update_nombre_window(object):
         self.retranslateUi(update_nombre_window)
         QtCore.QMetaObject.connectSlotsByName(update_nombre_window)
 
+        #------------------------------Regex--------------------------------
+        self.rx1 = QRegExp("[0-9]+")
+        self.id_entry.setValidator(QRegExpValidator(self.rx1))
+        self.rx2 = QRegExp("[a-z ]+")
+        self.upd_name_entry.setValidator(QRegExpValidator(self.rx1))
+        #------------------------------End Regex----------------------------
+        
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.update_name_controller.actualizar_nombre(self.id_entry.displayText(), self.upd_name_entry.displayText()))
-        
         self.x = self.save_button.clicked.connect(lambda:self.msg_upd_ok())
-
         self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 

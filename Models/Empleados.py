@@ -51,6 +51,17 @@ class Empleados():
 
         return result
 
+    def search(self, nombre, apellido, departamento, alta_de_empleado_min, alta_de_empleado_max, sueldo_bruto_min, sueldo_bruto_max):
+        self.db_cursor.execute("""SELECT * FROM empleados WHERE 
+                                                                nombre = ? OR 
+                                                                apellido = ? OR 
+                                                                departamento = ? OR 
+                                                                alta_de_empleado BETWEEN ? AND ? OR 
+                                                                sueldo_bruto BETWEEN ? AND ?""", nombre + apellido + departamento + alta_de_empleado_min + alta_de_empleado_max + sueldo_bruto_min + sueldo_bruto_max)
+        result = self.db_cursor.fetchall()
+
+        return result
+
     def add_empleado(self, nombre, apellido, departamento, fecha_alta, sueldo):
         self.db_cursor = self.db_connection.cursor()
         self.db_cursor.execute("INSERT INTO empleados VALUES(NULL, ?, ?, ?, ?, ?, NULL)", nombre + apellido + departamento + fecha_alta + sueldo)

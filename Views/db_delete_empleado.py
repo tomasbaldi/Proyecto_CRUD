@@ -6,6 +6,8 @@ sys.path.append(myDir)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_delete_empleado_controller import db_delete_empleado_controller
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 
 
 class Ui_delete_window(object):
@@ -58,11 +60,14 @@ class Ui_delete_window(object):
         self.retranslateUi(delete_window)
         QtCore.QMetaObject.connectSlotsByName(delete_window)
 
+        #------------------------------Regex--------------------------------
+        self.rx1 = QRegExp("[0-9]+")
+        self.id_entry.setValidator(QRegExpValidator(self.rx1))
+        #------------------------------End Regex----------------------------
+        
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.delete_empleado_controller.eliminar_empleado(self.id_entry.displayText()))
-        
         self.x = self.save_button.clicked.connect(lambda:self.msg_del_ok())
-
         self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 

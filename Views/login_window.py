@@ -10,7 +10,6 @@ from Views.db_mainwindow import Ui_main_bd_window
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QRegExpValidator
 
-
 class Ui_LoginWindow(object):
 
     def __init__(self):

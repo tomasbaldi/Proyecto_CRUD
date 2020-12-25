@@ -1,3 +1,7 @@
+#import hashlib
+#h = hashlib.new("sha256", b"cadena")
+#print(h.digest())
+
 class Users():
     
     def __init__(self, db_connection):

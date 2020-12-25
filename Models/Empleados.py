@@ -17,9 +17,9 @@ class Empleados():
             self.db_connection.commit()
             self.db_connection.close()
             print("empleados table created successfully")
-        
+
         except:
-            print('empleados table already exists')
+            pass
     
     def get_table_activos(self):
         self.db_cursor.execute("""SELECT 
@@ -48,8 +48,20 @@ class Empleados():
                                         WHERE baja_de_empleado IS NOT NULL ORDER BY apellido ASC
                                 """)
         result = self.db_cursor.fetchall()
-        
+
         return result
+
+    def add_empleado(self, nombre, apellido, departamento, fecha_alta, sueldo):
+        self.db_cursor = self.db_connection.cursor()
+        self.db_cursor.execute("INSERT INTO empleados VALUES(NULL, ?, ?, ?, ?, ?, NULL)", nombre + apellido + departamento + fecha_alta + sueldo)
+        self.db_connection.commit()
+        print("Empleado {} {} agregado correctamente a la base de datos".format(nombre[0], apellido[0]))
+
+    def remove_empleado(self, id, fecha_baja):
+        self.db_cursor = self.db_connection.cursor()
+        self.db_cursor.execute("UPDATE empleados SET baja_de_empleado = ? WHERE id = ?", fecha_baja + id)
+        self.db_connection.commit()
+        print("El empleado ID = {} ha sido dado de baja".format(id[0]))
         
 
             

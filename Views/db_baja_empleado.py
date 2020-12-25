@@ -68,6 +68,11 @@ class Ui_baja_window(object):
         self.retranslateUi(baja_window)
         QtCore.QMetaObject.connectSlotsByName(baja_window)
 
+        #------------------------------Events-------------------------------
+        self.x = self.save_button.clicked.connect(lambda:self.baja_empleado_controller.baja_empleado(self.id_entry.displayText(), self.baja_entry.displayText()))
+        #----------------------------End Events-----------------------------
+
+
     def retranslateUi(self, baja_window):
         _translate = QtCore.QCoreApplication.translate
         baja_window.setWindowTitle(_translate("baja_window", "BD Empleados v2.0"))

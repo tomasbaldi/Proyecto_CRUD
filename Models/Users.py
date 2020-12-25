@@ -12,9 +12,9 @@ class Users():
             self.db_connection.commit()
             self.db_connection.close()
             print("users table created successfully")
-
+        
         except:
-            print('users table already exists')
+            pass
 
     def getUser(self, user, password):
         user1 = [user]

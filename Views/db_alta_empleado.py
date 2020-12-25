@@ -100,6 +100,10 @@ class Ui_alta_window(object):
         self.retranslateUi(alta_window)
         QtCore.QMetaObject.connectSlotsByName(alta_window)
 
+        #------------------------------Events-------------------------------
+        self.x = self.save_button.clicked.connect(lambda:self.alta_empleado_controller.alta_empleado(self.entry_alta_nombre.displayText(), self.entry_alta_apellido.displayText(), self.entry_alta_depto.displayText(), self.entry_alta_date.displayText(), self.entry_sueldo_bruto.displayText()))
+        #----------------------------End Events-----------------------------
+
     def retranslateUi(self, alta_window):
         _translate = QtCore.QCoreApplication.translate
         alta_window.setWindowTitle(_translate("alta_window", "BD Empleados v2.0"))
@@ -110,7 +114,6 @@ class Ui_alta_window(object):
         self.date_label.setText(_translate("alta_window", "Fecha de alta:"))
         self.sueldo_label.setText(_translate("alta_window", "Sueldo Bruto:"))
         self.save_button.setText(_translate("alta_window", "Dar de alta"))
-
 
 if __name__ == "__main__":
     import sys

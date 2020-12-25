@@ -67,6 +67,10 @@ class Ui_update_apellido_window(object):
         self.retranslateUi(update_apellido_window)
         QtCore.QMetaObject.connectSlotsByName(update_apellido_window)
 
+        #------------------------------Events-------------------------------
+        self.x = self.save_button.clicked.connect(lambda:self.update_depto_controller.actualizar_depto(self.id_entry.displayText(), self.upd_surname_entry.displayText()))
+        #----------------------------End Events-----------------------------
+
     def retranslateUi(self, update_apellido_window):
         _translate = QtCore.QCoreApplication.translate
         update_apellido_window.setWindowTitle(_translate("update_apellido_window", "BD Empleados v2.0"))

@@ -74,6 +74,31 @@ class Empleados():
         self.db_cursor.execute("UPDATE empleados SET baja_de_empleado = NULL WHERE id = ?", id)
         self.db_connection.commit()
         print("El empleado ID = {} ha sido reincorporado".format(id[0]))
+
+    def upd_name(self, id, nombre):
+        self.db_cursor = self.db_connection.cursor()
+        self.db_cursor.execute("UPDATE empleados SET nombre = ? WHERE id = ?", nombre + id)
+        self.db_connection.commit()
+        print("Al empleado ID = {} se le ha modificado el nombre a: {}".format(id[0], nombre[0]))
+
+    def upd_surname(self, id, apellido):
+        self.db_cursor = self.db_connection.cursor()
+        self.db_cursor.execute("UPDATE empleados SET apellido = ? WHERE id = ?", apellido + id)
+        self.db_connection.commit()
+        print("Al empleado ID = {} se le ha modificado el apellido a: {}".format(id[0], apellido[0]))
+    
+    def upd_depto(self, id, departamento):
+        self.db_cursor = self.db_connection.cursor()
+        self.db_cursor.execute("UPDATE empleados SET departamento = ? WHERE id = ?", departamento + id)
+        self.db_connection.commit()
+        print("El empleado ID = {} ha sido reasignado al departamento {}".format(id[0], departamento[0]))
+
+    def upd_salary(self, id, salario):
+        self.db_cursor = self.db_connection.cursor()
+        self.db_cursor.execute("UPDATE empleados SET sueldo_bruto = ? WHERE id = ?", salario + id)
+        self.db_connection.commit()
+        print("Al empleado ID = {} se le ha asignado un sueldo bruto de: {}".format(id[0], salario[0]))
+        
         
 
             

@@ -12,3 +12,9 @@ class db_update_depto_controller():
     def __init__(self, db_update_depto):
         self.empleados = Empleados(connection())
         self.db_update_depto = db_update_depto
+           
+    def actualizar_depto(self, str_id_empleado, str_upd_depto):
+        id = [str_id_empleado]
+        departamento = [str_upd_depto]
+        self.empleados.upd_depto(id, departamento)
+        

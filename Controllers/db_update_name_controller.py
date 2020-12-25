@@ -12,3 +12,9 @@ class db_update_name_controller():
     def __init__(self, db_update_name):
         self.empleados = Empleados(connection())
         self.db_update_name = db_update_name
+    
+    def actualizar_nombre(self, str_id_empleado, str_upd_name):
+        id = [str_id_empleado]
+        nombre = [str_upd_name]
+        self.empleados.upd_name(id, nombre)
+        

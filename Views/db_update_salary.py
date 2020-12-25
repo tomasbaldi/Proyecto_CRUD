@@ -68,6 +68,10 @@ class Ui_update_salary_window(object):
         self.retranslateUi(update_salary_window)
         QtCore.QMetaObject.connectSlotsByName(update_salary_window)
 
+        #------------------------------Events-------------------------------
+        self.x = self.save_button.clicked.connect(lambda:self.update_salary_controller.actualizar_salario(self.id_entry.displayText(), self.upd_salary_entry.displayText()))
+        #----------------------------End Events-----------------------------
+
     def retranslateUi(self, update_salary_window):
         _translate = QtCore.QCoreApplication.translate
         update_salary_window.setWindowTitle(_translate("update_salary_window", "BD Empleados v2.0"))

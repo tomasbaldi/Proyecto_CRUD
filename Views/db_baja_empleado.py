@@ -6,6 +6,8 @@ sys.path.append(myDir)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from Controllers.db_baja_empleado_controller import db_baja_empleado_controller
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 
 
 class Ui_baja_window(object):
@@ -68,12 +70,18 @@ class Ui_baja_window(object):
 
         self.retranslateUi(baja_window)
         QtCore.QMetaObject.connectSlotsByName(baja_window)
+        
+        #------------------------------Regex--------------------------------
+        self.rx1 = QRegExp("[0-9]+")
+        self.id_entry.setValidator(QRegExpValidator(self.rx1))
+        self.rx2 = QRegExp("[0-9]+")
+        self.baja_entry.setValidator(QRegExpValidator(self.rx2))
+        self.baja_entry.setInputMask("9999-99-99")
+        #------------------------------End Regex----------------------------
 
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.baja_empleado_controller.baja_empleado(self.id_entry.displayText(), self.baja_entry.displayText()))
-        
         self.x = self.save_button.clicked.connect(lambda:self.msg_baja_ok())
-
         self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 

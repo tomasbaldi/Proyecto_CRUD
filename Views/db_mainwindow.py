@@ -203,6 +203,10 @@ class Ui_main_bd_window(object):
         self.x = self.undo_baja_registro.clicked.connect(lambda:self.mainwindow_controller.deshacer(main_bd_window, Ui_undo_baja_window))
         
         self.x = self.delete_registro.clicked.connect(lambda:self.mainwindow_controller.eliminar(main_bd_window, Ui_delete_window))
+
+        self.x = self.refresh_bd_registro.clicked.connect(lambda:self.mainwindow_controller.update_table_activos())
+
+        self.x = self.refresh_bd_registro.clicked.connect(lambda:self.mainwindow_controller.update_table_inactivos())
         #----------------------------End Events-----------------------------
 
     def retranslateUi(self, main_bd_window):

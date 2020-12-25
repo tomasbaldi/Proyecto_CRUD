@@ -7,6 +7,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from Controllers.login_window_controller import login_window_controller
 from PyQt5.QtWidgets import QMessageBox
 from Views.db_mainwindow import Ui_main_bd_window
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
 
 
 class Ui_LoginWindow(object):
@@ -120,7 +122,14 @@ class Ui_LoginWindow(object):
 
         self.retranslateUi(LoginWindow)
         QtCore.QMetaObject.connectSlotsByName(LoginWindow)
-
+        
+        #------------------------------Regex--------------------------------
+        self.rx1 = QRegExp("[a-z]+")
+        self.user_entry.setValidator(QRegExpValidator(self.rx1))
+        self.rx2 = QRegExp("[0-9]+")
+        self.pwd_entry.setValidator(QRegExpValidator(self.rx2))
+        #------------------------------End Regex----------------------------
+        
         #------------------------------Events-------------------------------
         self.x = self.enter_button.clicked.connect(lambda:self.login_window_controller.login_app(self.user_entry.text(), self.pwd_entry.text(), LoginWindow, Ui_main_bd_window))
         #----------------------------End Events-----------------------------

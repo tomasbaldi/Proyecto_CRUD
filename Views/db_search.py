@@ -152,7 +152,7 @@ class Ui_search_window(object):
     
     def buscar_datos(self, str_nombre, str_apellido, str_departamento, str_alta_de_empleado_min, str_alta_de_empleado_max, str_sueldo_bruto_min, str_sueldo_bruto_max):
         datos_encontrados = self.search_controller.buscar(str_nombre, str_apellido, str_departamento, str_alta_de_empleado_min, str_alta_de_empleado_max, str_sueldo_bruto_min, str_sueldo_bruto_max)
-        self.search_controller.resultados(search_window, Ui_searchresults_window, datos_encontrados)
+        self.search_controller.resultados(self, Ui_searchresults_window, datos_encontrados)
     
     def retranslateUi(self, search_window):
         _translate = QtCore.QCoreApplication.translate

@@ -16,4 +16,4 @@ class db_update_surname_controller():
     def actualizar_apellido(self, str_id_empleado, str_upd_surname):
         id = [str_id_empleado]
         apellido = [str_upd_surname]
-        self.empleados.upd_name(id, apellido)
+        self.empleados.upd_surname(id, apellido)

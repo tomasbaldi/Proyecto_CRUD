@@ -5,7 +5,7 @@ sys.path.append(myDir)
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-from Controllers.db_update_depto_controller import db_update_depto_controller
+from Controllers.db_update_surname_controller import db_update_surname_controller
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QRegExpValidator
 

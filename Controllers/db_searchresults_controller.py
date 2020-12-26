@@ -20,3 +20,6 @@ class db_searchresults_controller():
         for fila in range(len(self.datos)):
             for columna in range(len(self.datos[fila])):
                 self.table.setItem(fila, columna, QtWidgets.QTableWidgetItem(str(self.datos[fila][columna])))
+
+    def ocultar_ventana(self, Ui_searchresults_window):
+        Ui_searchresults_window.hide()

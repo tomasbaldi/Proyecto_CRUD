@@ -72,6 +72,10 @@ class Ui_searchresults_window(object):
         self.retranslateUi(searchresults_window)
         QtCore.QMetaObject.connectSlotsByName(searchresults_window)
 
+        #------------------------------Events-------------------------------    
+        self.x = self.search_again_button.clicked.connect(lambda:self.searchresults_controller.ocultar_ventana(searchresults_window))
+        #----------------------------End Events-----------------------------
+
     def retranslateUi(self, searchresults_window):
         _translate = QtCore.QCoreApplication.translate
         searchresults_window.setWindowTitle(_translate("searchresults_window", "BD Empleados v2.0"))

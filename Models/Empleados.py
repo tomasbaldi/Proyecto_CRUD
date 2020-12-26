@@ -108,7 +108,7 @@ class Empleados():
         self.db_cursor = self.db_connection.cursor()
         self.db_cursor.execute("UPDATE empleados SET sueldo_bruto = ? WHERE id = ?", salario + id)
         self.db_connection.commit()
-        print("Al empleado ID = {} se le ha asignado un sueldo bruto de: {}".format(id[0], salario[0]))
+        print("Al empleado ID = {} se le ha asignado un nuevo sueldo bruto de: {}".format(id[0], salario[0]))
         
         
 

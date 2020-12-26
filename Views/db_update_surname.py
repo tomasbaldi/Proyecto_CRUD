@@ -12,7 +12,7 @@ from PyQt5.QtGui import QRegExpValidator
 class Ui_update_apellido_window(object):
 
     def __init__(self):
-        self.update_depto_controller = db_update_depto_controller(self)
+        self.update_surname_controller = db_update_surname_controller(self)
 
     def setupUi(self, update_apellido_window):
         update_apellido_window.setObjectName("update_apellido_window")
@@ -78,7 +78,7 @@ class Ui_update_apellido_window(object):
         #------------------------------End Regex----------------------------
         
         #------------------------------Events-------------------------------
-        self.x = self.save_button.clicked.connect(lambda:self.update_depto_controller.actualizar_depto(self.id_entry.displayText(), self.upd_surname_entry.displayText()))
+        self.x = self.save_button.clicked.connect(lambda:self.update_surname_controller.actualizar_apellido(self.id_entry.displayText(), self.upd_surname_entry.displayText()))
         self.x = self.save_button.clicked.connect(lambda:self.msg_upd_ok())
         self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------

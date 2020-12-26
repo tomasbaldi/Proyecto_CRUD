@@ -146,6 +146,8 @@ class Ui_search_window(object):
         
         #------------------------------Events-------------------------------    
         self.x = self.search_button.clicked.connect(lambda:self.buscar_datos(self.entry_alta_nombre.text(), self.entry_alta_apellido.text(), self.entry_alta_depto.text(), self.entry_alta_date_min.text(), self.entry_alta_date_max.text(), self.entry_salary_min.text(), self.entry_salary_max.text()))
+        
+        self.x = self.search_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
     
     def buscar_datos(self, str_nombre, str_apellido, str_departamento, str_alta_de_empleado_min, str_alta_de_empleado_max, str_sueldo_bruto_min, str_sueldo_bruto_max):
@@ -164,6 +166,15 @@ class Ui_search_window(object):
         self.search_button.setText(_translate("search_window", "Buscar"))
         self.betweendate_label.setText(_translate("search_window", "y"))
         self.betweensalary_label.setText(_translate("search_window", "y"))
+
+    def clear_entrys(self):
+        self.entry_alta_nombre.clear()
+        self.entry_alta_apellido.clear()
+        self.entry_alta_depto.clear()
+        self.entry_alta_date_min.clear()
+        self.entry_alta_date_max.clear()
+        self.entry_salary_min.clear()
+        self.entry_salary_max.clear()
 
 if __name__ == "__main__":
     import sys

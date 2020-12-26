@@ -119,7 +119,9 @@ class Ui_alta_window(object):
         
         #------------------------------Events-------------------------------
         self.x = self.save_button.clicked.connect(lambda:self.alta_empleado_controller.alta_empleado(self.entry_alta_nombre.displayText(), self.entry_alta_apellido.displayText(), self.entry_alta_depto.displayText(), self.entry_alta_date.displayText(), self.entry_sueldo_bruto.displayText()))
+        
         self.x = self.save_button.clicked.connect(lambda:self.msg_add_ok())
+        
         self.x = self.save_button.clicked.connect(lambda:self.clear_entrys())
         #----------------------------End Events-----------------------------
 

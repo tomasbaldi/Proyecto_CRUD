@@ -144,11 +144,13 @@ class Ui_search_window(object):
         self.entry_salary_max.setValidator(QRegExpValidator(self.rx7))
         #------------------------------End Regex----------------------------        
         
-        #------------------------------Events-------------------------------
-        self.x = self.search_button.clicked.connect(lambda:self.search_controller.buscar(self.entry_alta_nombre.text(), self.entry_alta_apellido.text(), self.entry_alta_depto.text(), self.entry_alta_date_min.text(), self.entry_alta_date_max.text(), self.entry_salary_min.text(), self.entry_salary_max.text()))
-        
-        self.x = self.search_button.clicked.connect(lambda:self.search_controller.resultados(search_window, Ui_searchresults_window))
+        #------------------------------Events-------------------------------    
+        self.x = self.search_button.clicked.connect(lambda:self.buscar_datos(self.entry_alta_nombre.text(), self.entry_alta_apellido.text(), self.entry_alta_depto.text(), self.entry_alta_date_min.text(), self.entry_alta_date_max.text(), self.entry_salary_min.text(), self.entry_salary_max.text()))
         #----------------------------End Events-----------------------------
+    
+    def buscar_datos(self, str_nombre, str_apellido, str_departamento, str_alta_de_empleado_min, str_alta_de_empleado_max, str_sueldo_bruto_min, str_sueldo_bruto_max):
+        datos_encontrados = self.search_controller.buscar(str_nombre, str_apellido, str_departamento, str_alta_de_empleado_min, str_alta_de_empleado_max, str_sueldo_bruto_min, str_sueldo_bruto_max)
+        self.search_controller.resultados(search_window, Ui_searchresults_window, datos_encontrados)
     
     def retranslateUi(self, search_window):
         _translate = QtCore.QCoreApplication.translate
@@ -162,7 +164,6 @@ class Ui_search_window(object):
         self.search_button.setText(_translate("search_window", "Buscar"))
         self.betweendate_label.setText(_translate("search_window", "y"))
         self.betweensalary_label.setText(_translate("search_window", "y"))
-
 
 if __name__ == "__main__":
     import sys

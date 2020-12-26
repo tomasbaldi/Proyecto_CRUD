@@ -15,6 +15,6 @@ class db_update_name_controller():
     
     def actualizar_nombre(self, str_id_empleado, str_upd_name):
         id = [str_id_empleado]
-        nombre = [str_upd_name]
+        nombre = [str_upd_name.title()]
         self.empleados.upd_name(id, nombre)
         

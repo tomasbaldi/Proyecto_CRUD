@@ -14,9 +14,9 @@ class db_alta_empleado_controller():
         self.db_alta_empleado = db_alta_empleado
 
     def alta_empleado(self, str_nombre_alta, str_apellido_alta, str_depto_alta, str_date_alta, str_sueldo_alta):
-        nombre = [str_nombre_alta]
-        apellido = [str_apellido_alta]
-        departamento = [str_depto_alta]
+        nombre = [str_nombre_alta.title()]
+        apellido = [str_apellido_alta.title()]
+        departamento = [str_depto_alta.title()]
         fecha_alta = [str_date_alta]
         sueldo = [str_sueldo_alta]
         self.empleados.add_empleado(nombre, apellido, departamento, fecha_alta, sueldo)

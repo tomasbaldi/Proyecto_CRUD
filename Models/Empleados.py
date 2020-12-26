@@ -102,7 +102,7 @@ class Empleados():
         self.db_cursor = self.db_connection.cursor()
         self.db_cursor.execute("UPDATE empleados SET departamento = ? WHERE id = ?", departamento + id)
         self.db_connection.commit()
-        print("El empleado ID = {} ha sido reasignado al departamento {}".format(id[0], departamento[0]))
+        print("El empleado ID = {} ha sido reasignado al departamento: {}".format(id[0], departamento[0]))
 
     def upd_salary(self, id, salario):
         self.db_cursor = self.db_connection.cursor()

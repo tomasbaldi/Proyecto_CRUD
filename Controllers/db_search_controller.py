@@ -23,9 +23,9 @@ class db_search_controller():
         self.db_search.Form.show()
 
     def buscar(self, str_nombre, str_apellido, str_departamento, str_alta_de_empleado_min, str_alta_de_empleado_max, str_sueldo_bruto_min, str_sueldo_bruto_max):
-        nombre = [str_nombre]
-        apellido = [str_apellido]
-        departamento = [str_departamento]
+        nombre = [str_nombre.title()]
+        apellido = [str_apellido.title()]
+        departamento = [str_departamento.title()]
         alta_de_empleado_min = [str_alta_de_empleado_min]
         alta_de_empleado_max = [str_alta_de_empleado_max]
         sueldo_bruto_min = [str_sueldo_bruto_min]

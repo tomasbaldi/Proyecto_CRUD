@@ -5,8 +5,8 @@ import sqlite3
 def connection():
     try:
         db_connection = sqlite3.connect('.\\Database\\base_nueva.db')
-        print("database connection successfully")
+        print("Database connection successfull.")
         return db_connection
         
     except:
-        print('error')
+        print('Error - check Database connection.')

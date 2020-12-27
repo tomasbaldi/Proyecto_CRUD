@@ -32,3 +32,6 @@ Las tablas se ordenan en forma ascendente por el atributo 'Apellido':
 ------- BOTONES ADICIONALES DE LA INTERFAZ -------
 - 'Deshacer baja': sirve para dar de alta un empleado nuevamente, en caso que se haya dado de baja por error.
 - 'Eliminar registro': sirve para eliminar un registro de la base de datos de forma permanente.
+
+------- SEGURIDAD -------
+- Las credenciales de los usuarios se guardan encriptados en la base de datos, para que los mismos no puedan ser legibles. 

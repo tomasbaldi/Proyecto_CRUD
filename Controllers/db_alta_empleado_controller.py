@@ -6,6 +6,7 @@ sys.path.append(myDir)
 from PyQt5 import QtWidgets
 from Database.Connection import connection
 from Models.Empleados import Empleados
+from Credenciales.generador_credenciales import credencial
 
 class db_alta_empleado_controller():
 
@@ -20,3 +21,5 @@ class db_alta_empleado_controller():
         fecha_alta = [str_date_alta]
         sueldo = [str_sueldo_alta]
         self.empleados.add_empleado(nombre, apellido, departamento, fecha_alta, sueldo)
+
+        credencial(str_nombre_alta.title(), str_apellido_alta.title(), str_depto_alta.title())
